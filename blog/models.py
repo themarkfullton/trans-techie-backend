@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 from django.template.defaultfilters import slugify
 
+
 class Categories(models.TextChoices):
     FRONT = "front-end"
     BACK = "back-end"
@@ -13,6 +14,7 @@ class Categories(models.TextChoices):
     ALGORITHMS = "algorithms"
     DATA = "data"
     MSC = "msc"
+
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=50)
