@@ -4,9 +4,9 @@ from django.template.defaultfilters import slugify
 
 
 class Categories(models.TextChoices):
-    FRONT = 'front-end'
-    BACK = 'back-end'
-    FULL = 'full-stack'
+    FRONT = 'frontend'
+    BACK = 'backend'
+    FULL = 'fullstack'
     SOFTWARE = 'software'
     DEVOPS = 'devops'
     SCALABILITY = 'scalability'
