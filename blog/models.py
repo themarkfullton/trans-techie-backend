@@ -4,24 +4,22 @@ from django.template.defaultfilters import slugify
 
 
 class Categories(models.TextChoices):
-    WORLD = 'world'
-    ENVIRONMENT = 'environment'
-    TECHNOLOGY = 'technology'
-    DESIGN = 'design'
-    CULTURE = 'culture'
-    BUSINESS = 'business'
-    POLITICS = 'politics'
-    OPINION = 'opinion'
-    SCIENCE = 'science'
-    HEALTH = 'health'
-    STYLE = 'style'
-    TRAVEL = 'travel'
+    FRONT = 'front-end'
+    BACK = 'back-end'
+    FULL = 'full-stack'
+    SOFTWARE = 'software'
+    DEVOPS = 'devops'
+    SCALABILITY = 'scalability'
+    ARCHITECTURE = 'architecture'
+    ALGORITHMS = 'algorithms'
+    DATA = 'data'
+    MISC = 'msc'
 
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField()
-    category = models.CharField(max_length=50, choices=Categories.choices, default=Categories.WORLD)
+    category = models.CharField(max_length=50, choices=Categories.choices, default=Categories.FULL)
     thumbnail = models.ImageField(upload_to='photos/%Y/%m/%d/')
     excerpt = models.CharField(max_length=150, blank=False)
     month = models.CharField(max_length=3)
