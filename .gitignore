@@ -6,8 +6,6 @@ __pycache__
 db.sqlite3
 media
 
-./trans_techie/settings.py
-
 # Backup files #
 *.bak
 
