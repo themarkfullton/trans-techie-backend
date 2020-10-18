@@ -4,23 +4,25 @@ from django.template.defaultfilters import slugify
 
 
 class Categories(models.TextChoices):
-    FRONT = "front-end"
-    BACK = "back-end"
-    FULL = "full-stack"
-    SOFTWARE = "software"
-    DEVOPS = "devops"
-    SCALABILITY = "scalability"
-    ARCHITECTURE = "architecture"
-    ALGORITHMS = "algorithms"
-    DATA = "data"
-    MSC = "msc"
+    WORLD = 'world'
+    ENVIRONMENT = 'environment'
+    TECHNOLOGY = 'technology'
+    DESIGN = 'design'
+    CULTURE = 'culture'
+    BUSINESS = 'business'
+    POLITICS = 'politics'
+    OPINION = 'opinion'
+    SCIENCE = 'science'
+    HEALTH = 'health'
+    STYLE = 'style'
+    TRAVEL = 'travel'
 
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField()
-    category = models.CharField(max_length, choices=Categories.choices, default=Categories.FULL)
-    thumbnail = models.ImageField(upload_to='photos/%Y/%m/%d')
+    category = models.CharField(max_length=50, choices=Categories.choices, default=Categories.WORLD)
+    thumbnail = models.ImageField(upload_to='photos/%Y/%m/%d/')
     excerpt = models.CharField(max_length=150, blank=False)
     month = models.CharField(max_length=3)
     day = models.CharField(max_length=2)
@@ -34,8 +36,7 @@ class BlogPost(models.Model):
 
         count = 1
         slug = original_slug
-
-        while(queryset):
+        while (queryset):
             slug = original_slug + '-' + str(count)
             count += 1
             queryset = BlogPost.objects.all().filter(slug__iexact=slug).count()
@@ -45,14 +46,11 @@ class BlogPost(models.Model):
         if self.featured:
             try:
                 temp = BlogPost.objects.get(featured=True)
-
                 if self != temp:
                     temp.featured = False
                     temp.save()
-
             except BlogPost.DoesNotExist:
                 pass
-
         super(BlogPost, self).save(*args, **kwargs)
 
     def __str__(self):

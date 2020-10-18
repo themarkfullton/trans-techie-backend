@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'django_summernote',
-    'python-dotenv',
+    'dotenv',
     'blog'
 ]
 
