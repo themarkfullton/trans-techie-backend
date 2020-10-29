@@ -1,0 +1,1 @@
+web: gunicorn trans_techie.wsgi
