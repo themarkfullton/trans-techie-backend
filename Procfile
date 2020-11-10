@@ -1,1 +1,1 @@
-web: gunicorn trans_techie.wsgi
+web: gunicorn trans_techie.wsgi --log-file -

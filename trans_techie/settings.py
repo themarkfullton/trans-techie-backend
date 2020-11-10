@@ -33,7 +33,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = os.getenv('DEBUG_BOOL')
 
 ALLOWED_HOSTS = [
-    'trans-techie-backend.herokuapp.com'
+    '0.0.0.0', 'localhost'
 ]
 
 
